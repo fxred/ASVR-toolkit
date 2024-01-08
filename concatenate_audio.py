@@ -1,8 +1,10 @@
 import subprocess
 import os
 from mutagen.flac import FLAC
+import glob
 
-input_files = os.listdir("IO")
+input_files = [os.path.basename(filepath) for
+                filepath in glob.glob("IO/*.flac")]
 
 for i in range(0, len(input_files)):
     input_files[i] = f"IO/{input_files[i]}"
