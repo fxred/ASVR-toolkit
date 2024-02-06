@@ -12,6 +12,7 @@ for file in audio_filenames:
   file_path = f"IO/{file}"
   audio = FLAC(file_path)
   length += audio.info.length
+  ## optimisation: make the decision based on the full length MINUS the length of the last track (avoids formatting the timestamps in a wrong manner when the full album is just above an hour in length but the last track's timestamp isn't above 3600 seconds)
 
 if length >= 3600:
   length = 0
